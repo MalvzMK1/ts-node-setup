@@ -22,9 +22,6 @@ test('Create a medic register', () => {
 });
 
 it('It should be a Fastify Instance', () => {
-  // const leleo = new Person('Leonardo', 17);
-
-  // expect(leleo).toBeInstanceOf(Person);
   const app = fastify();
   const instance: FastifyInstance = app;
 
