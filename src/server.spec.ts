@@ -1,19 +1,32 @@
-import { expect, test } from 'vitest';
+import { expect, it, test } from 'vitest';
+import fastify, { FastifyInstance } from 'fastify';
 
-const data = {
-  email: 'matheus@gmail.com',
-  name: 'matheus',
-  age: 16,
-};
+class Medic {
+  name;
+  specialty;
 
-test('It should sum', () => {
-  expect(2 + 2).toBe(4);
+  constructor(name: string, specialty: string) {
+    this.name = name;
+    this.specialty = specialty;
+  }
+
+  getSpecialty(): string {
+    return this.specialty;
+  }
+}
+
+test('Create a medic register', () => {
+  const medic = new Medic('John Doe', 'Cardiologist');
+
+  expect(medic).toBeInstanceOf(Medic);
 });
 
-test('It should be negative', () => {
-  expect(2 + 3).toBe(5);
-});
+it('It should be a Fastify Instance', () => {
+  // const leleo = new Person('Leonardo', 17);
 
-test('It should...', () => {
-  expect(data.age).toBe(16);
+  // expect(leleo).toBeInstanceOf(Person);
+  const app = fastify();
+  const instance: FastifyInstance = app;
+
+  expect(app).toBe(instance);
 });
